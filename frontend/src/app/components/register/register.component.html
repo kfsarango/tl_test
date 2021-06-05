@@ -1,0 +1,114 @@
+<div class="contaner mt-3 cont-minheight">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="cont-form">
+        <div class="text-center">
+          <h3 class="p-2">Crear Cuenta Gratis</h3>
+          <div class="head-line-center"></div>
+          <p>
+            Ingresa los siguientes datos para registrarte como un nuevo usuario.
+          </p>
+        </div>
+        <form (ngSubmit)="register()" #formRegistro="ngForm" class="forms-logreg">
+          <mat-form-field>
+            <input matInput type="text"
+                   name="name"
+                   [(ngModel)]="user.name"
+                   #name="ngModel"
+                   [ngClass]="{'is-invalid': name.invalid && name.touched}"
+                   class="form-control"
+                   required>
+          </mat-form-field>
+          <div *ngIf="name.invalid && name.touched" class="alerta">
+            Ingrese su nombre
+          </div>
+
+          <mat-form-field>
+            <input matInput type="text"
+                   name="last_name"
+                   [(ngModel)]="user.last_name"
+                   class="form-control"
+                   #last_name="ngModel"
+                   [ngClass]="{'is-invalid': last_name.invalid && last_name.touched}"
+                   required>
+          </mat-form-field>
+          <div *ngIf="last_name.invalid && last_name.touched" class="alerta">
+            Ingrese su segundo nombre
+          </div>
+
+          <mat-form-field>
+            <input matInput type="email"
+                   name="mail"
+                   [(ngModel)]="user.email"
+                   class="form-control"
+                   #email="ngModel"
+                   [ngClass]="{'is-invalid': email.invalid && email.touched}"
+                   required>
+          </mat-form-field>
+          <div *ngIf="email.invalid && email.touched" class="alerta">
+            Ingrese su correo electrónico
+          </div>
+
+          <mat-form-field>
+            <input matInput type="number"
+                   name="phone"
+                   [(ngModel)]="user.phone_number"
+                   class="form-control"
+                   #phone="ngModel"
+                   [ngClass]="{'is-invalid': phone.invalid && phone.touched}"
+                   required>
+          </mat-form-field>
+          <div *ngIf="phone.invalid && phone.touched" class="alerta">
+            Ingrese su número de teléfono.
+          </div>
+
+
+          <mat-form-field>
+            <input matInput type="text"
+                   name="username"
+                   [(ngModel)]="user.username"
+                   class="form-control"
+                   #username="ngModel"
+                   [ngClass]="{'is-invalid': username.invalid && username.touched}"
+                   required>
+          </mat-form-field>
+          <div *ngIf="username.invalid && username.touched" class="alerta">
+            Ingrese su nombre de usuario
+          </div>
+
+          <mat-form-field>
+            <input matInput type="password"
+                   name="password"
+                   [(ngModel)]="user.password"
+                   class="form-control"
+                   #password="ngModel"
+                   [ngClass]="{'is-invalid': password.invalid && password.touched}"
+                   required>
+          </mat-form-field>
+          <div *ngIf="password.invalid && password.touched" class="alerta">
+            Ingrese una contraseña
+          </div>
+
+          <mat-form-field>
+            <input matInput type="password"
+                   name="confpass"
+                   [formControl]="confirmationPasswordField"
+                   class="form-control"
+                   [ngClass]="{'is-invalid': !matchPassword()}"
+                   required>
+          </mat-form-field>
+          <div *ngIf="!matchPassword()" class="alerta">
+            No coinciden las contraseñas.
+          </div>
+          <div class="cont-btn-form">
+            <button type="submit" class="btn btn-success" [disabled]="formRegistro.invalid || !matchPassword()">Register</button>
+            <div class="separator">or</div>
+            <p><a [routerLink]="['/login']">Login here!</a></p>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,47 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+.alerta {
+  font-size: 12px;
+  color: #FFA5A5;
+}
+.head-line-center {
+  height: 3px;
+  width: 75px;
+  background-color: #cccccc;
+  margin: 2% auto 2%;
+}
+
+.head-line-left {
+  height: 3px;
+  width: 75px;
+  background-color: #cccccc;
+  margin: 2% 70% 2% 0;
+}
+
+.cont-minheight{
+  min-height: 30em;
+  margin-top: 2%;
+}
+
+
+.cont-form{
+  width: 40%;
+  margin: 1% auto;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+}
+.cont-form form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.cont-form form mat-form-field{
+  width: 90%;
+  margin: 0 auto;
+}

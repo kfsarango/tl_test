@@ -1,0 +1,66 @@
+<div class="alert alert-danger" role="alert" *ngIf="errorState">
+  {{alertMessage}}
+</div>
+
+<div class="alert alert-warning" role="alert" *ngIf="warningState">
+  {{alertMessage}}
+</div>
+
+<div class="container mt-4 cont-minheight">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="cont-form">
+        <div class="text-center">
+          <h3 class="p-2">Bienvenido</h3>
+          <div class="head-line-center"></div>
+          <p>
+            Por favor ingresa a tu cuenta, ingresando tu número de cédula y contraseña.
+            Si no tienes una cuenta en Todo Legal, puedes crear una gratis.
+          </p>
+        </div>
+        <form (ngSubmit)="login()" #loginForm="ngForm">
+          <mat-form-field>
+            <input matInput
+                   type="text"
+                   name="username"
+                   [(ngModel)]="user.username"
+                   placeholder="Cedula de indentidad"
+                   #username="ngModel"
+                   required>
+            <mat-icon matSuffix
+                      matTooltip="Tu cédula debe encontrarse vigente para poder acceder al sistema"
+                      aria-label=""
+            >
+              info
+            </mat-icon>
+          </mat-form-field>
+          <div *ngIf="username.invalid && username.touched" class="alerta">
+            Debes ingresar tu CI
+          </div>
+
+          <mat-form-field>
+            <input matInput
+                   type="password"
+                   name="password"
+                   placeholder="Contraseña"
+                   [(ngModel)]="user.password"
+                   #password="ngModel"
+                   required>
+          </mat-form-field>
+          <div *ngIf="password.invalid && password.touched" class="alerta">
+            Debes completar la contrasela.
+          </div>
+          <div class="cont-btn-form">
+            <p>
+              <a [routerLink]="['/register']">No tengo cuenta, crear una gratis</a>
+            </p>
+            <div class="text-right">
+              <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Continuar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

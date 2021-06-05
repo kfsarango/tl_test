@@ -1,0 +1,20 @@
+<div class="container cont-minheight">
+  <div class="row">
+    <div class="col-md-12">
+      <div id="cont_user">
+        <div class="alert-success p-2">
+          Validación exitosa!
+        </div>
+        <h3 class="m-2">Datos verificados:</h3>
+        <div class="head-line-left"></div>
+        <p class="lead">Nombres Y Apellidos</p>
+        <p>{{dataUser['name']}} {{dataUser['last_name']}}</p>
+        <p class="lead">Cédula de Identidad</p>
+        <p>{{dataUser['username']}}</p>
+        <div class="text-right">
+          <a [routerLink]="['/login']" class="btn btn-primary">Finalizar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
