@@ -1,5 +1,5 @@
 # tl_test
-Todo Legal test
+Implemtantion of Flask and Angular
 
 # Backend
 Flask + MongoDB
